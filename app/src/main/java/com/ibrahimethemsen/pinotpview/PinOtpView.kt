@@ -9,7 +9,7 @@ import android.text.method.DigitsKeyListener
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import androidx.appcompat.R as AppR
+
 
 class PinOtpView @JvmOverloads constructor(
     context : Context,
@@ -25,17 +25,17 @@ class PinOtpView @JvmOverloads constructor(
     private var rectBackgroundPaint: TextPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL_AND_STROKE
         textSize = textSize
-        color = ContextCompat.getColor(context, AppR.color.material_blue_grey_800)
+        color = ContextCompat.getColor(context, R.color.otp_rect_background_gray)
     }
     private val linePaint = Paint().apply {
-        color = ContextCompat.getColor(context, AppR.color.switch_thumb_normal_material_dark)
+        color = ContextCompat.getColor(context, R.color.otp_focused_line_blue)
         strokeWidth = mLineStrokeSelected * 2
     }
     private var circleEnteredPaint: TextPaint? = null
     private var focusedRectPaint: TextPaint = TextPaint().apply {
         style = Paint.Style.FILL_AND_STROKE
         textSize = textSize
-        color = ContextCompat.getColor(context, AppR.color.accent_material_light)
+        color = ContextCompat.getColor(context,R.color.otp_rect_focused_background_gray)
     }
 
     private var textWidths = FloatArray(4)
@@ -55,13 +55,13 @@ class PinOtpView @JvmOverloads constructor(
             density = multi
             style = Paint.Style.FILL
             textSize = textSize
-            color = ContextCompat.getColor(context, AppR.color.material_grey_800)
+            color = ContextCompat.getColor(context, R.color.otp_empty_circle_gray)
         }
         circleEnteredPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
             density = multi
             style = Paint.Style.FILL
             textSize = textSize
-            color = ContextCompat.getColor(context, AppR.color.foreground_material_dark)
+            color = ContextCompat.getColor(context, R.color.otp_entered_circle_gray)
         }
 
         val mMaxLength = attrs?.getAttributeIntValue(XML_NAMESPACE_ANDROID, MAX_LENGTH, 4)
